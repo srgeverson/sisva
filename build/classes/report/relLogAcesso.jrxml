@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relLogAcesso" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="15be5461-dce3-42c1-a65b-da658355d019">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="plsql">
+		<![CDATA[SELECT
+     logacesso."laces_pk_id" AS logacesso_laces_pk_id,
+     logacesso."laces_id_tabela" AS logacesso_laces_id_tabela,
+     logacesso."laces_operacao" AS logacesso_laces_operacao,
+     logacesso."laces_o_que_modificou" AS logacesso_laces_o_que_modificou,
+     logacesso."laces_valor_antigo" AS logacesso_laces_valor_antigo,
+     logacesso."laces_valor_atual" AS logacesso_laces_valor_atual,
+     logacesso."laces_data_cadastrou" AS logacesso_laces_data_cadastrou,
+     logacesso."laces_data_modificou" AS logacesso_laces_data_modificou,
+     logacesso."laces_fk_users_pk_id" AS logacesso_laces_fk_users_pk_id
+FROM
+     "siscv"."logacesso" logacesso]]>
+	</queryString>
+	<field name="logacesso_laces_pk_id" class="java.lang.Integer"/>
+	<field name="logacesso_laces_id_tabela" class="java.lang.Long"/>
+	<field name="logacesso_laces_operacao" class="java.lang.String"/>
+	<field name="logacesso_laces_o_que_modificou" class="java.lang.String"/>
+	<field name="logacesso_laces_valor_antigo" class="java.lang.String"/>
+	<field name="logacesso_laces_valor_atual" class="java.lang.String"/>
+	<field name="logacesso_laces_data_cadastrou" class="java.sql.Timestamp"/>
+	<field name="logacesso_laces_data_modificou" class="java.sql.Timestamp"/>
+	<field name="logacesso_laces_fk_users_pk_id" class="java.lang.Integer"/>
+	<variable name="contador" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{logacesso_laces_pk_id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="22" width="435" height="35" uuid="baaaf3e1-50ff-4eaf-9b25-11c3e2511ac6"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DAS LOGs DE ACESSO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="86f8b6f6-0d2d-4713-8f3d-1cebb9e02904"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="160" height="20" uuid="2e425925-de15-4bd6-944d-58ccf07398c8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[logs de acesso ao sistema]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="434" y="0" width="121" height="20" uuid="b063d9ae-d39c-46f4-b26c-0fadcedb1714"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="088e491f-d32b-4dce-84d1-4ff303960e5d"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="76" height="20" uuid="6e744155-f787-4bac-bad7-16e11a2b7f44"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="1" width="141" height="20" uuid="9d83370f-6a41-479b-ac4d-1ef34d9cd536"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO DE ACESSO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="1" width="90" height="20" uuid="a9348f49-90b5-4b3c-be7e-2793516d101d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OPERAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="2" width="136" height="20" uuid="7e798f58-13d3-49b2-8456-5cf770c6d0c8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USUÁRIO CADASTROU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="1" width="130" height="20" uuid="570e1781-30bf-4004-8939-dd7e86d0c30c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA DA INSERÇÃO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="75" height="20" uuid="ba73064a-e755-4dad-8fc0-64bf0efa2874"/>
+				<textFieldExpression><![CDATA[$F{logacesso_laces_pk_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="0" width="112" height="20" uuid="d34c6958-ee3a-488c-ae86-66e51ab3d537"/>
+				<textFieldExpression><![CDATA[$F{logacesso_laces_id_tabela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="0" width="88" height="20" uuid="31a3c6bf-f5ef-478b-845f-fed19da03b9a"/>
+				<textFieldExpression><![CDATA[$F{logacesso_laces_operacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="107" height="20" uuid="8f01a5fb-367f-4583-b699-888105ca7e3b"/>
+				<textFieldExpression><![CDATA[$F{logacesso_laces_data_cadastrou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="121" height="20" uuid="3e6fe54b-735a-42f5-8121-d58e2c3e741a"/>
+				<textFieldExpression><![CDATA[$F{logacesso_laces_fk_users_pk_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="375" y="0" width="134" height="20" uuid="a63a835e-1893-41c0-aad5-beeb62dd0d33"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="509" y="0" width="45" height="20" uuid="993b6529-8044-4054-af04-06a9ab566fb7"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="508" y="0" width="46" height="20" uuid="ee9aabd9-631d-4e2f-8f00-519753b82389"/>
+				<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="392" y="2" width="116" height="20" uuid="889397ff-b062-442b-ae8c-5e83aeb581cb"/>
+				<text><![CDATA[Qnt. de logs registradas]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relLogUsers" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7340ac0f-403d-4791-82d9-3360bd4b0397">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     logusers."luser_pk_id" AS logusers_luser_pk_id,
+     logusers."luser_id_tabela" AS logusers_luser_id_tabela,
+     logusers."luser_operacao" AS logusers_luser_operacao,
+     logusers."luser_o_que_modificou" AS logusers_luser_o_que_modificou,
+     logusers."luser_valor_antigo" AS logusers_luser_valor_antigo,
+     logusers."luser_valor_atual" AS logusers_luser_valor_atual,
+     logusers."luser_data_cadastrou" AS logusers_luser_data_cadastrou,
+     logusers."luser_data_modificou" AS logusers_luser_data_modificou,
+     logusers."luser_fk_users_pk_id" AS logusers_luser_fk_users_pk_id
+FROM
+     "siscv"."logusers" logusers]]>
+	</queryString>
+	<field name="logusers_luser_pk_id" class="java.lang.Integer"/>
+	<field name="logusers_luser_id_tabela" class="java.lang.Long"/>
+	<field name="logusers_luser_operacao" class="java.lang.String"/>
+	<field name="logusers_luser_o_que_modificou" class="java.lang.String"/>
+	<field name="logusers_luser_valor_antigo" class="java.lang.String"/>
+	<field name="logusers_luser_valor_atual" class="java.lang.String"/>
+	<field name="logusers_luser_data_cadastrou" class="java.sql.Timestamp"/>
+	<field name="logusers_luser_data_modificou" class="java.sql.Timestamp"/>
+	<variable name="contador" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{logusers_luser_pk_id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="93" y="25" width="368" height="28" uuid="894f0068-3c65-4c2c-ae5b-d9080eb7c9c0"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO LOG USUÁRIOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="296" height="20" uuid="332a55ee-73c0-43f6-8640-6e0ad7147d81"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registros das ações da tabelala usuários]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="364" y="0" width="191" height="20" uuid="1e3e6679-d70b-4bbf-a733-adc25ffb1bf8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="e3674d2d-d827-4f7e-8eb1-e39356f657af"/>
+			</line>
+			<line>
+				<reportElement x="0" y="22" width="555" height="1" uuid="e5cc1511-f9a8-4e4a-b66c-a732e8f78b04"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="20" uuid="008bb9fd-b993-4243-a46e-3e502a0f5c9e"/>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="0" width="82" height="20" uuid="50da3e8e-b5a5-43d5-a85c-0851532d6777"/>
+				<text><![CDATA[COD. USUARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="61" height="20" uuid="59e07f15-18c6-45f6-8684-8868ed5ce822"/>
+				<text><![CDATA[OPERAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="191" y="0" width="105" height="20" uuid="7c2e8817-bd3d-4309-b25d-de27c4477cb4"/>
+				<text><![CDATA[CAMPO MOD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="0" width="76" height="20" uuid="55f16961-1438-435e-b8f2-466cd05c523a"/>
+				<text><![CDATA[VLR. ANTIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="0" width="61" height="20" uuid="661da4ae-abb5-41b1-b634-a6aabc097e3e"/>
+				<text><![CDATA[VLR. ATUAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="0" width="61" height="20" uuid="5ffca745-e31b-4045-922c-4c85dcb42461"/>
+				<text><![CDATA[DATA CAD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="61" height="20" uuid="94f93f8d-b25f-4681-a4da-6b28d20c9b34"/>
+				<text><![CDATA[DATA MOD.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="48" height="20" uuid="f6a35e82-4178-410f-a0be-d8260d8ca86a"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_pk_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="0" width="82" height="20" uuid="89cf3940-6ffa-4437-871e-669c6d69b4bf"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_id_tabela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="61" height="20" uuid="35d7db0e-3558-47f3-b1af-a9362252b763"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_operacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="0" width="105" height="20" uuid="4fc80cd7-b45e-4a77-bdc8-eeec2b07a7bd"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_o_que_modificou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="0" width="76" height="20" uuid="6a967dea-c2e6-45f5-a4f3-54a8a514e100"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_valor_antigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="0" width="61" height="20" uuid="60200934-0830-4c4d-9885-8d52d60e77d0"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_valor_atual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="433" y="0" width="61" height="20" uuid="d5834d94-04d9-472a-8030-5d27cb6889fa"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_data_cadastrou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="0" width="61" height="20" uuid="f84a689c-e31b-42b5-9f43-8c916aa2301b"/>
+				<textFieldExpression><![CDATA[$F{logusers_luser_data_modificou}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="433" y="0" width="80" height="20" uuid="d5cb0d98-49d4-499f-aebb-212bc78bf895"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="513" y="0" width="40" height="20" uuid="8a8d994e-9807-4f10-be42-00168d60a7c2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="413" y="0" width="100" height="20" uuid="0d580b7f-3a60-4893-8d57-bdfe53b1930b"/>
+				<text><![CDATA[Qnt. de registros: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="513" y="0" width="40" height="20" uuid="9aa681f6-3483-4fca-a247-fa6eccc93959"/>
+				<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

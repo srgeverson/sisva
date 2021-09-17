@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relAjuda" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8abfa1bb-9805-4be1-8dfe-c39b6d0af1ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ajud_pk_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ajuda."ajud_pk_id" AS ajuda_ajud_pk_id,
+     ajuda."ajud_descricao" AS ajuda_ajud_descricao,
+     ajuda."ajud_status" AS ajuda_ajud_status,
+     users."user_name" AS users_user_name
+FROM
+     "siscv"."users" users INNER JOIN "siscv"."ajuda" ajuda ON users."user_pk_id" = ajuda."ajud_fk_users_pk_id"
+WHERE
+ajud_pk_id = $P{ajud_pk_id}]]>
+	</queryString>
+	<field name="ajuda_ajud_pk_id" class="java.lang.Integer"/>
+	<field name="ajuda_ajud_descricao" class="java.lang.String"/>
+	<field name="ajuda_ajud_status" class="java.lang.Boolean"/>
+	<field name="users_user_name" class="java.lang.String"/>
+	<variable name="contador" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{ajuda_ajud_pk_id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="146" y="24" width="262" height="30" uuid="761a146b-126e-4a50-803d-12c0b94f93b6"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição da Ajuda]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="125" height="20" uuid="366a3484-6e5c-445d-98d6-ba42c5528d5c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ajuda Registrada]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="367" y="0" width="188" height="20" uuid="0bee43d1-fef2-4bac-9bcd-6d84c3f91fce"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="e8775d00-f5b2-461e-848c-623c3d0e20c8"/>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="9f4a6ce0-1562-4cc2-bef5-493a2ae2b561"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="126" splitType="Stretch">
+			<textField>
+				<reportElement x="55" y="20" width="209" height="20" uuid="835b17a4-ebf1-40e1-a0aa-806d0fd8d8df"/>
+				<textFieldExpression><![CDATA[$F{ajuda_ajud_pk_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="77" width="189" height="48" uuid="40cfbc3b-9587-4a5f-b0f6-40bd40135149"/>
+				<textFieldExpression><![CDATA[$F{ajuda_ajud_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="60" width="203" height="20" uuid="f19933b3-fa06-49e7-b5a3-c394c5895cd7"/>
+				<textFieldExpression><![CDATA[$F{ajuda_ajud_status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="40" width="205" height="20" uuid="8cdc10b8-a6dd-4172-894f-d21fb154437b"/>
+				<textFieldExpression><![CDATA[$F{users_user_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="55" height="20" uuid="0c216127-59b7-40a3-9349-3ff96d1a3324"/>
+				<text><![CDATA[CÓDIGO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="77" width="75" height="20" uuid="d2b94b6a-a651-4507-a5be-d57c1f2e6487"/>
+				<text><![CDATA[DESCRIÇAO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="59" height="20" uuid="59935450-0beb-4627-872c-48d9454e196e"/>
+				<text><![CDATA[USUÁRIO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="60" width="55" height="20" uuid="e546ef1c-3c3d-47b8-a498-76558eb290e9"/>
+				<text><![CDATA[STATUS :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="125" width="555" height="1" uuid="91dfc407-8c62-4d6d-b856-58217e3c1ebc"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="555" y="20" width="1" height="106" uuid="bf52a4da-ca23-4224-a8d6-08c249a64bd9"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="432" y="0" width="80" height="20" uuid="e57c0b4a-4308-4367-a1eb-b8b9a6eba377"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="0" width="40" height="20" uuid="1110ae8a-1faf-4935-ad36-4807cd6ca51e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="521" y="0" width="34" height="20" uuid="b684f744-d4f2-4aa4-b1bb-8e8c73678e83"/>
+				<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="432" y="0" width="89" height="20" uuid="207765b5-c7f5-42d2-9ec6-ade8ea5d1a92"/>
+				<text><![CDATA[Qnt. de registros:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

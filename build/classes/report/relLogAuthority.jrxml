@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relLogAuthority" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1fb0e33b-65b6-4143-b676-abaf18e7ee67">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     logauthority."lauth_pk_id" AS logauthority_lauth_pk_id,
+     logauthority."lauth_id_tabela" AS logauthority_lauth_id_tabela,
+     logauthority."lauth_operacao" AS logauthority_lauth_operacao,
+     logauthority."lauth_o_que_modificou" AS logauthority_lauth_o_que_modificou,
+     logauthority."lauth_valor_antigo" AS logauthority_lauth_valor_antigo,
+     logauthority."lauth_valor_atual" AS logauthority_lauth_valor_atual,
+     logauthority."lauth_data_cadastrou" AS logauthority_lauth_data_cadastrou,
+     logauthority."lauth_data_modificou" AS logauthority_lauth_data_modificou
+FROM
+     "siscv"."logauthority" logauthority]]>
+	</queryString>
+	<field name="logauthority_lauth_pk_id" class="java.lang.Integer"/>
+	<field name="logauthority_lauth_id_tabela" class="java.lang.Long"/>
+	<field name="logauthority_lauth_operacao" class="java.lang.String"/>
+	<field name="logauthority_lauth_o_que_modificou" class="java.lang.String"/>
+	<field name="logauthority_lauth_valor_antigo" class="java.lang.String"/>
+	<field name="logauthority_lauth_valor_atual" class="java.lang.String"/>
+	<field name="logauthority_lauth_data_cadastrou" class="java.sql.Timestamp"/>
+	<field name="logauthority_lauth_data_modificou" class="java.sql.Timestamp"/>
+	<variable name="contador" class="java.lang.Integer" calculation="Count"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="4" width="525" height="34" uuid="251f2479-261f-45ad-afea-bef3d4b4ae5a"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DAS LOGs DE PERMISSÕES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="69197aeb-f5cf-4a03-93d9-d604a8f3b1d7"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="182" height="20" uuid="665b293c-4f93-4ef8-b1b4-fd577e351897"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Históricos de permissões]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="385" y="0" width="170" height="20" uuid="12fe431b-f9bb-44f7-b0f5-52947526421e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="38ee9169-76a2-4c68-887a-9590a17a2eaf"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="69" height="20" uuid="2ce00327-4af1-440e-a73c-ccff3d0a3fda"/>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="0" width="95" height="20" uuid="562b5687-8670-49c2-ab48-0b6864db28bf"/>
+				<text><![CDATA[COD. PERMISSAO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="64" height="20" uuid="076ac810-956e-4395-b010-0002edb203d9"/>
+				<text><![CDATA[OPRAÇAO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="48" height="20" uuid="5eec81a2-c5a5-4981-be2c-522e172e504c"/>
+				<text><![CDATA[CAMPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="69" height="20" uuid="408ded04-9501-4fdd-8702-14d047c64be4"/>
+				<text><![CDATA[VLR. ANTIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="0" width="69" height="20" uuid="74319cc5-ea8c-4364-888c-f5a6db1c4d69"/>
+				<text><![CDATA[VLR. ATUAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="0" width="69" height="20" uuid="3ae5c4ef-f148-49bf-b660-28e861c48920"/>
+				<text><![CDATA[DATA CAD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="0" width="69" height="20" uuid="5d568e23-3429-482e-b62d-2bbca0843ed2"/>
+				<text><![CDATA[DATA ALTE.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="69" height="20" uuid="d8554ea6-f9c9-4fc5-8fd2-bcad05835136"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_pk_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="0" width="95" height="20" uuid="f31d3616-a0c2-4b13-bb3e-a0bb83118e92"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_id_tabela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="64" height="20" uuid="84721802-9275-4550-b8dd-a48a95f66c18"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_operacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="48" height="20" uuid="ab8437a9-c28f-4ac2-80b0-067137de4ed0"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_o_que_modificou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="69" height="20" uuid="a37116a3-8d78-4335-9a2e-e6c88b4ec536"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_valor_antigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="69" height="20" uuid="db1e3b59-1d8e-41df-8726-d91cfe466396"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_valor_atual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="0" width="69" height="20" uuid="d57fa765-d09b-4bd1-ae8c-7238be648874"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_data_cadastrou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="0" width="69" height="20" uuid="a66e5519-274a-4d00-8082-6772064c9f8e"/>
+				<textFieldExpression><![CDATA[$F{logauthority_lauth_data_modificou}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="81ab2e07-600b-428d-bda0-45f98529908c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="5be6eae1-ec03-4c3a-8507-7cbe6e74b245"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

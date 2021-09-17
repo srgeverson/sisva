@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relLogError" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88641678-642f-420b-b753-24d95f2668f2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     logerror."lerro_pk_id" AS logerror_lerro_pk_id,
+     logerror."lerro_id_tabela" AS logerror_lerro_id_tabela,
+     logerror."lerro_operacao" AS logerror_lerro_operacao,
+     logerror."lerro_o_que_modificou" AS logerror_lerro_o_que_modificou,
+     logerror."lerro_valor_antigo" AS logerror_lerro_valor_antigo,
+     logerror."lerro_valor_atual" AS logerror_lerro_valor_atual,
+     logerror."lerro_data_cadastrou" AS logerror_lerro_data_cadastrou,
+     logerror."lerro_data_modificou" AS logerror_lerro_data_modificou
+FROM
+     "siscv"."logerror" logerror]]>
+	</queryString>
+	<field name="logerror_lerro_pk_id" class="java.lang.Integer"/>
+	<field name="logerror_lerro_id_tabela" class="java.lang.Long"/>
+	<field name="logerror_lerro_operacao" class="java.lang.String"/>
+	<field name="logerror_lerro_o_que_modificou" class="java.lang.String"/>
+	<field name="logerror_lerro_valor_antigo" class="java.lang.String"/>
+	<field name="logerror_lerro_valor_atual" class="java.lang.String"/>
+	<field name="logerror_lerro_data_cadastrou" class="java.sql.Timestamp"/>
+	<field name="logerror_lerro_data_modificou" class="java.sql.Timestamp"/>
+	<variable name="contador" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{logerror_lerro_pk_id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="105" y="25" width="345" height="28" uuid="d7eb110a-c38b-4d89-80ea-9048656004d9"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE LOG ERRO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="202" height="20" uuid="d8b8907e-403b-4684-b541-c907170ee1ed"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório das logs de erros]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="355" y="1" width="195" height="20" uuid="a7d81730-b036-44ed-b5d5-58b970acf58e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="830485d0-0def-4c77-ad7d-a727de27795c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="958f2362-ffee-4487-a472-f6960f109edc"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="20" uuid="e32d3087-4345-466d-9e2e-ffb67c89d37b"/>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="0" width="68" height="20" uuid="2e189ef9-bcb6-467d-b563-be1a234568f7"/>
+				<text><![CDATA[COD. ERROR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="69" height="20" uuid="af79bdac-8f4b-4da8-b474-332760bc6b7f"/>
+				<text><![CDATA[OPERAÇAO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="0" width="76" height="20" uuid="b5ad0026-c91b-4acd-8c8c-e94feece1007"/>
+				<text><![CDATA[CAMPO MOD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="0" width="66" height="20" uuid="cdce2c87-fda4-4722-a18a-290f240f440a"/>
+				<text><![CDATA[VLR. ANTIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="0" width="65" height="20" uuid="0b06b585-9f2e-494a-956a-deea58a56859"/>
+				<text><![CDATA[VLR. ATUAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="0" width="69" height="20" uuid="42746491-4c45-4e16-ab6f-5e7bafad7560"/>
+				<text><![CDATA[DATA CAD.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="0" width="87" height="20" uuid="1c2b052a-77ea-448e-b6e9-996f049b6d79"/>
+				<text><![CDATA[DATA MOD.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="20" uuid="d9bcae3b-1bf6-4639-8131-6a861c93ed63"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_pk_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="0" width="69" height="20" uuid="e7979a43-61c3-40e9-a86c-63ecc44d187d"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_id_tabela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="69" height="20" uuid="0a3d7ee5-8d52-4f43-907f-72506f72a8f5"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_operacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="0" width="76" height="20" uuid="c14249e7-f9be-4614-9553-d298a4b13015"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_o_que_modificou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="0" width="66" height="20" uuid="32524f7f-268f-4068-80d9-2c11f5072946"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_valor_antigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="0" width="65" height="20" uuid="7aafb6ba-e1ef-4ded-9a22-e38564fc494b"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_valor_atual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="0" width="69" height="20" uuid="fc466932-47a2-425f-9584-82b227b5eee5"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_data_cadastrou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="87" height="20" uuid="51d1251e-6fc3-433e-aa60-89b33a1117ed"/>
+				<textFieldExpression><![CDATA[$F{logerror_lerro_data_modificou}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="0" width="80" height="20" uuid="74806116-e1e1-43ab-a176-c1ebbdea4b7a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="0" width="40" height="20" uuid="a1076f64-a491-4e3b-80d0-e5f7784f356a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="378" y="0" width="118" height="20" uuid="389a9272-3092-4377-a371-eb3821e5df48"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtd. de logs salvos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="496" y="0" width="54" height="20" uuid="f875cab3-d632-4f3c-9a47-f9010a00b6b4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

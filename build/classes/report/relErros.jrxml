@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relError" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f838a2f3-6c44-4a38-9be6-bbeb4b439bb3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="20"/>
+	<queryString>
+		<![CDATA[SELECT
+     error."erro_pk_id" AS error_erro_pk_id,
+     error."erro_descricao" AS error_erro_descricao,
+     error."erro_usuario" AS error_erro_usuario,
+     error."erro_maquina" AS error_erro_maquina,
+     error."erro_ip_local" AS error_erro_ip_local,
+     error."erro_ip_externo" AS error_erro_ip_externo,
+     error."erro_observacao" AS error_erro_observacao
+FROM
+     "siscv"."error" error]]>
+	</queryString>
+	<field name="error_erro_pk_id" class="java.lang.Integer"/>
+	<field name="error_erro_descricao" class="java.lang.String"/>
+	<field name="error_erro_usuario" class="java.lang.String"/>
+	<field name="error_erro_maquina" class="java.lang.String"/>
+	<field name="error_erro_ip_local" class="java.lang.String"/>
+	<field name="error_erro_ip_externo" class="java.lang.String"/>
+	<field name="error_erro_observacao" class="java.lang.String"/>
+	<variable name="contador" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{error_erro_pk_id}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="135" y="25" width="284" height="29" uuid="771597a9-4bf4-442d-808f-8aedcc9896ab"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE ERRO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="215" height="20" uuid="3ebed331-524f-421f-b419-da739c942641"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório dos erro reistrados]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="371" y="0" width="184" height="20" uuid="485adbc0-a0b2-45f4-b6c4-d3abaa329af2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="8c9103f8-1db5-4b0e-8a4d-e0abbb1cb68e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="772dcb79-e5c8-445f-9f2e-32a927722f3d"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="123" splitType="Stretch">
+			<textField>
+				<reportElement x="49" y="0" width="110" height="20" uuid="43cce681-d57b-44ec-ac9a-5b223254af39"/>
+				<textFieldExpression><![CDATA[$F{error_erro_pk_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="40" width="215" height="82" uuid="55a38e32-c835-430c-9c9e-74c295d02b31"/>
+				<textFieldExpression><![CDATA[$F{error_erro_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="0" width="130" height="20" uuid="fe5f1a07-9dac-438d-bdc2-2075a0338519"/>
+				<textFieldExpression><![CDATA[$F{error_erro_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="20" width="125" height="20" uuid="bc0db63a-5782-4b64-a557-21bcb1fcc0a8"/>
+				<textFieldExpression><![CDATA[$F{error_erro_maquina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="20" width="127" height="20" uuid="b314790e-1702-4a5d-b4aa-f9103f7737fa"/>
+				<textFieldExpression><![CDATA[$F{error_erro_ip_local}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="20" width="112" height="20" uuid="33c524ae-2f5e-4c01-bcb1-b3c1666c6440"/>
+				<textFieldExpression><![CDATA[$F{error_erro_ip_externo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="40" width="172" height="82" uuid="f421de28-b6a5-4b5b-8a0c-2594a0fcf4bc"/>
+				<textFieldExpression><![CDATA[$F{error_erro_observacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="79" height="83" uuid="f259db79-e6a4-4ee3-b34e-28b1bee95875"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIÇÃO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="49" height="20" uuid="5e24ab4b-cde4-4136-8f01-e07bcf7416c8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="0" width="58" height="20" uuid="36e9665c-a74f-4a6b-816f-2c3a2ac04411"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[USUARIO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="61" height="20" uuid="e265f2c9-3d07-4280-b7d2-86653f432598"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MAQUINA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="20" width="58" height="20" uuid="900c7973-f3da-4869-9d4b-7bf09bf8fa0c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IP LOCAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="20" width="72" height="20" uuid="a9975a6f-560e-4d49-a260-06287bd9c34b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IP EXTERNO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="40" width="89" height="82" uuid="508c8a9c-be1d-4664-8fcf-449c11508dd3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBSERVAÇAO: ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="555" y="2" width="1" height="121" uuid="078c2e6a-9fd7-4baa-8af5-2bac7f64b8f7"/>
+			</line>
+			<line>
+				<reportElement x="0" y="122" width="555" height="1" uuid="b660ac2b-9826-42c4-9bfe-8b011686699e"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="436" y="0" width="80" height="20" uuid="0a53fb5d-f3b3-4ce5-af91-8b0e42098b32"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="516" y="0" width="40" height="20" uuid="4450b118-2c40-40f9-91e3-a43a194bbe75"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="516" y="0" width="39" height="20" uuid="dc9cc884-8714-4d53-bfde-5943178819d9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="371" y="0" width="144" height="20" uuid="a2f9d1fd-0d2a-4697-b782-488a47d980a8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qnt. de registros salvos:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
